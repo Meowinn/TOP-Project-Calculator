@@ -1,0 +1,48 @@
+body {
+    text-align: center;
+}
+
+.mainContainer{
+    border-style: solid;
+    margin: 80px auto;
+    width: 800px;
+    height: 1000px;
+}
+
+.subContainer {
+    border-style: solid;
+    margin: 50px 50px;
+    padding: 70px;
+}
+
+.numContainer {
+    border-style: solid;
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 50px;
+    height: 650px;
+    width: auto;
+    padding: 3px;
+    gap: 2px;
+    
+}
+
+.columns {
+    display: flex;
+    flex: 1;
+    gap: 2px;
+    justify-content: center;
+   
+}
+
+.num {
+ flex-grow: 1; 
+ font-size: 20px;
+ font-weight: 700;
+}
+
+.operands {
+  align-items:center;
+  
+  
+}
