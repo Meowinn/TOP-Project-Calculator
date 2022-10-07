@@ -1,17 +1,15 @@
-//add eventListener to all buttons
-//add switch statement similar to Angela's drum kit
-//text.Content for the display?
+
 
 const buttons = document.querySelectorAll(`button`);
 const display = document.getElementById(`subContainer`);
-const input = document.getElementById(`subC`);
-
+let input = document.getElementById(`subC`);
+let input2 = document.getElementById(`subC`).value;
 
 //for button clicks
 for (const digits of buttons) {
     digits.addEventListener(`click`, function() {
         let numbers = this.innerHTML;
-        console.log(numbers)
+        //console.log(numbers)
         enterDigit(numbers);
     })
 }
@@ -22,18 +20,18 @@ for (const digits of buttons) {
 //switch keys are binded to class 
 
 function enterDigit(key) {
-    
+   
     switch(key) {
-        case "0":
-            input.value += key;
-            break;
-
         case "1":
-             return console.log(Number(input.value += key));
+            input.value += key;
+            input2 += key;
+             
             break;
 
         case "2":
             input.value += key;
+            input2 += key;
+        //return console.log(Number(input.value += key));
             break;
 
         case "3":
@@ -63,6 +61,10 @@ function enterDigit(key) {
         case "9":
             input.value += key;
             break;
+
+        case "0":
+            input.value += key;
+            break;    
             
         case "+":
             input.value += key;
@@ -81,7 +83,14 @@ function enterDigit(key) {
             break;    
 
         case "=":
-            input.value += key;
+            let equation = input.value;
+
+            let result = +equation.split("+")[0] + +equation.split("+")[1]
+
+           
+
+            console.log(result);
+            input.value = result;
             break;
         
         case "•":
