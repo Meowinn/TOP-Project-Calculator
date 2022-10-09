@@ -12,26 +12,37 @@ for (const digits of buttons) {
         //console.log(numbers)
         enterDigit(numbers);
     })
-}
-
-
-//I can use input.value to record the display then convert to number?
+};
  
-//switch keys are binded to class 
+function add(num1, num2) {
+    return num1 + num2;
+  };
+
+function subtract(num1, num2) {
+    return num1 - num2;
+  };
+
+function multiply(num1, num2) {
+    return num1 * num2;
+  };
+
+function divide(num1, num2) {
+    return num1 / num2;
+  };
+
+function operate(num1, num2, operator) {
+return input.value = operator(num1, num2)
+  };
+
 
 function enterDigit(key) {
-   
     switch(key) {
         case "1":
             input.value += key;
-            input2 += key;
-             
             break;
 
         case "2":
             input.value += key;
-            input2 += key;
-        //return console.log(Number(input.value += key));
             break;
 
         case "3":
@@ -75,22 +86,60 @@ function enterDigit(key) {
             break;
 
         case "x":
-            input.value += key;
+            input.value += `*`;
             break;
         
         case "÷":
-            input.value += key;
+            input.value += `/`;
             break;    
 
         case "=":
+            
             let equation = input.value;
 
+            let arr = equation.split(/[^0-9.]/g).map(function(str){
+                return parseFloat(str);
+            });
+         
+            let num1 = arr[0];
+            let num2 = arr[1];
+
+            if(equation.includes(`+`)){
+                operate(num1, num2, add);
+            }
+            if(equation.includes(`-`)) {
+                operate(num1, num2, subtract)
+            };
+          
+            if(equation.includes(`*`)) {
+                operate(num1, num2, multiply)
+            };
+
+            if(equation.includes(`/`)) {
+                operate(num1, num2, divide)
+            };
+          
+
+
+
+        /*
+            
+            if (equation.includes(`+`)){
+            let arr = equation.split(`+`).map(function(str){
+                return parseFloat(str);
+            });
+            let final = arr.map(function(x){
+                return x+=arr[arr.length-1];
+            })
+            input.value = final[0];
+            };
+
+          */  
+            /*            
             let result = +equation.split("+")[0] + +equation.split("+")[1]
-
-           
-
             console.log(result);
             input.value = result;
+            */
             break;
         
         case "•":
@@ -103,3 +152,5 @@ function enterDigit(key) {
         default:
     }
 }
+
+
