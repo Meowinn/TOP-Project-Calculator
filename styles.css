@@ -1,15 +1,17 @@
 body {
+    font-family: "Orbitron", sans-serif;
     text-align: center;
-    background-color: #545b7c;
+    background-color: #dadce2;
 }
 
 .mainContainer{
     border-style: solid;
     border-radius: 13px;
+    border-width: 12px;
     margin: 80px auto;
     width: 800px;
     height: 1000px;
-    color: #3d4b8d;
+    color: #2f3a6e;
     background-color: #0283DB;
 }
 
@@ -17,7 +19,7 @@ body {
     border-style: solid;
     margin: 50px 50px;
     max-width: auto;
-    color: #6880FA;
+    color: #121422;
 }
 
 #subC {
@@ -30,29 +32,56 @@ body {
 
 .numContainer {
     border-style: solid;
+    border-radius: 12px;
     display: flex;
     flex-direction: column-reverse;
     margin: 50px;
     height: 650px;
     width: auto;
-    padding: 3px;
+    padding: 2px;
     gap: 2px;
+    background-color: black;
 }
 
 .columns {
     display: flex;
     flex: 1;
-    gap: 2px;
+    gap: 1px;
     justify-content: center;
+    align-items: stretch;
 }
 
 .num {
+ font-family: inherit;
+ border-radius: 8px;
  flex-grow: 1; 
  font-size: 20px;
  font-weight: 700;
- background-color: #d2f1f1;
+ background-color: #c2e0e0;
+ width: 20px;
 }
 
 .operands {
   align-items:center;
+  background-color: #6177e6;
 }
+
+.clear {
+    background-color: rgb(194, 108, 108);
+}
+
+
+#equals {
+    width: auto;
+    background-color: rgb(235, 182, 83);
+}
+
+button:hover {
+    background-color: rgb(245, 119, 119);
+    transition: 0.2s;
+}
+
+button:disabled {
+    background-color: rgb(72, 72, 75);
+}
+

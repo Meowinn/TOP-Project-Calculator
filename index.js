@@ -36,10 +36,17 @@ function divide(num1, num2) {
   };
 
 function operate(num1, num2, operator) {
-return input.value = operator(num1, num2)
+        if (operator(num1,num2)%1==0) {
+            return input.value = `=` + operator(num1, num2);
+        } else {return input.value = `=` + operator(num1, num2).toFixed(2)};
   };
 
+
+
 function enterDigit(key) {
+    if(input.value.includes(`=`)) {
+        input.value = input.value.substr(1, input.value.length);
+    };
     switch(key) {
         case "1":
             input.value += key;
@@ -82,6 +89,7 @@ function enterDigit(key) {
             break;    
             
         case "+":
+           
             input.value += key;
             break;
 
@@ -98,7 +106,6 @@ function enterDigit(key) {
             break;    
 
         case "=":
-
             for(let y = 0; y<signs.length; y++){
                 signs[y].disabled = false;
             };
@@ -108,7 +115,7 @@ function enterDigit(key) {
             let arr = equation.split(/[^0-9.]/g).map(function(str){
                 return parseFloat(str);
             });
-         
+            console.log(arr);
             let num1 = arr[0];
             let num2 = arr[1];
 
@@ -138,7 +145,7 @@ function enterDigit(key) {
             };
            input.value = ``;
             break;
-        default:
+            default:
             
     }
     if (input.value.includes(`+`)) {
@@ -154,5 +161,8 @@ function enterDigit(key) {
         disable();
     };
 }
+
+
+
 
 
