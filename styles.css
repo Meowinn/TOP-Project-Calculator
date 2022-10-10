@@ -1,19 +1,23 @@
 body {
     text-align: center;
+    background-color: #545b7c;
 }
 
 .mainContainer{
     border-style: solid;
+    border-radius: 13px;
     margin: 80px auto;
     width: 800px;
     height: 1000px;
+    color: #3d4b8d;
+    background-color: #0283DB;
 }
 
 #subContainer {
     border-style: solid;
-    
     margin: 50px 50px;
     max-width: auto;
+    color: #6880FA;
 }
 
 #subC {
@@ -21,6 +25,7 @@ body {
     height: 100px;
     font-size: 80px;
     font-weight: 600;
+    background-color:#02DB75;
 }
 
 .numContainer {
@@ -32,7 +37,6 @@ body {
     width: auto;
     padding: 3px;
     gap: 2px;
-    
 }
 
 .columns {
@@ -46,6 +50,7 @@ body {
  flex-grow: 1; 
  font-size: 20px;
  font-weight: 700;
+ background-color: #d2f1f1;
 }
 
 .operands {

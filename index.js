@@ -1,19 +1,24 @@
-
-
 const buttons = document.querySelectorAll(`button`);
 const display = document.getElementById(`subContainer`);
 let input = document.getElementById(`subC`);
-let input2 = document.getElementById(`subC`).value;
+const signs = document.getElementsByClassName(`operands`);
 
 //for button clicks
 for (const digits of buttons) {
     digits.addEventListener(`click`, function() {
         let numbers = this.innerHTML;
-        //console.log(numbers)
-        enterDigit(numbers);
+        console.log(numbers)
+        enterDigit(numbers)
+
     })
 };
- 
+
+const disable = function () {
+    for (let i = 0; i<signs.length; i++) {
+        signs[i].disabled = true;
+    }
+}; 
+
 function add(num1, num2) {
     return num1 + num2;
   };
@@ -33,7 +38,6 @@ function divide(num1, num2) {
 function operate(num1, num2, operator) {
 return input.value = operator(num1, num2)
   };
-
 
 function enterDigit(key) {
     switch(key) {
@@ -81,7 +85,7 @@ function enterDigit(key) {
             input.value += key;
             break;
 
-        case "₋":
+        case "–":
             input.value += `-`
             break;
 
@@ -94,7 +98,11 @@ function enterDigit(key) {
             break;    
 
         case "=":
-            
+
+            for(let y = 0; y<signs.length; y++){
+                signs[y].disabled = false;
+            };
+
             let equation = input.value;
 
             let arr = equation.split(/[^0-9.]/g).map(function(str){
@@ -106,7 +114,7 @@ function enterDigit(key) {
 
             if(equation.includes(`+`)){
                 operate(num1, num2, add);
-            }
+            };
             if(equation.includes(`-`)) {
                 operate(num1, num2, subtract)
             };
@@ -118,28 +126,6 @@ function enterDigit(key) {
             if(equation.includes(`/`)) {
                 operate(num1, num2, divide)
             };
-          
-
-
-
-        /*
-            
-            if (equation.includes(`+`)){
-            let arr = equation.split(`+`).map(function(str){
-                return parseFloat(str);
-            });
-            let final = arr.map(function(x){
-                return x+=arr[arr.length-1];
-            })
-            input.value = final[0];
-            };
-
-          */  
-            /*            
-            let result = +equation.split("+")[0] + +equation.split("+")[1]
-            console.log(result);
-            input.value = result;
-            */
             break;
         
         case "•":
@@ -147,10 +133,26 @@ function enterDigit(key) {
             break;
         
         case "c":
+            for(let y = 0; y<signs.length; y++){
+                signs[y].disabled = false;
+            };
            input.value = ``;
             break;
         default:
+            
     }
+    if (input.value.includes(`+`)) {
+        disable();
+    }
+    else if (input.value.includes(`-`)){
+        disable();
+    }
+    else if (input.value.includes(`*`)) {
+        disable();
+    }
+    else if (input.value.includes(`/`)) {
+        disable();
+    };
 }
 
 
